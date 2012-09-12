@@ -1,0 +1,89 @@
+@charset "utf-8";
+/* CSS Document */
+body 
+{
+	background-image: url('http://www.guia-empresas.net/fondos/grandes/GE-fondo2.jpg');
+	background-repeat:repeat-x;
+	background-attachment: fixed
+}
+header
+{
+	border:solid 2px #036;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-ms-border-radius: 10px;
+}
+
+header h1
+{
+	display:inline;
+	padding-left:15px;
+	text-align:center;
+}
+
+.space
+{
+	padding:10px;
+}
+
+nav
+{
+	border:solid 2px #036;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-ms-border-radius: 10px;
+}
+
+nav li
+{
+	display:inline;
+	list-style:none;
+	padding:30px;	
+}
+
+nav li a
+{
+	list-style: none;
+   	border: 1px solid #0000FF;
+   	padding:10px;
+   	text-decoration: none;
+}
+
+a
+{
+	text-decoration:none;
+}
+
+nav li a:hover
+{
+	background-color:#000;
+	color:#FFF;
+	border-color:#0F0;
+}
+
+article
+{
+	border:solid 2px #036;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-ms-border-radius: 10px;
+	padding:15px;
+	text-align:justify;
+}
+
+article section
+{
+	text-align:center;
+}
+
+footer
+{
+	border:solid 2px #333;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-ms-border-radius: 10px;
+	padding:15px;
+	text-align:justify;
+	background-color:#333;
+	color:#FFF;
+}
