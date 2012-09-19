@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>Practica 6</title>
+		<meta name="author" content="" />
+		<meta charset="UTF-8" />
+        <script language="javascript">
+		function img(valor)
+		{
+			if(valor=="")
+			{
+				alert("Debes de Seleccionar una imagen");
+				exit();
+			}
+		}
+		
+		function tel(valor)
+		{
+			if(isNaN(valor))
+			{
+				alert("Telefono Incorrecto");
+				document.reg.phone.value="";	
+			}
+		}
+		
+		function check2(valor)
+		{
+			if(valor.length>=6)	
+				alert("El Password cumple con los requerimientos");
+				
+			else
+			{
+				alert("El Password debe contener de 6 a 16 caracteres");
+				document.reg.pass.value="";
+			}
+		}
+		
+		function nick(valor)
+		{
+			if(valor=="")
+				alert("Debes de Completar el campo de Nickname");
+		}
+		
+		function todo()
+		{
+			if(document.reg.bday.value=="")
+				alert("Debes completar todos los campos");
+		}
+
+	</script>
+	</head>
+    <body>
+    	<h1>REGISTRO</h1>
+        	<form method="post" action="" name="reg">
+	<fieldset>
+		<label for="nombre">NICK</label>
+		<input disabled type="text" id="nombre" name="nombre" />
+		<br />
+		<br />
+		<label for="email">CORREO</label>
+		<input disabled type="email" id="email" name="mail" />
+		<br />
+	</fieldset>
+	<fieldset>		
+	<select name="Question">
+   		<option selected value="0">Porque Te Registras Con Nosotros?</option>
+        <option value="0">Elige una Opci&oacute;n...</option>
+		<option value="1">Compartir Ideas</option> 
+		<option value="2">Descargar Musica</option> 
+		<option value="3">Vinculos Sociales</option> 
+		<option value="4">Mantener Contacto</option> 
+	</select>
+	<br />
+	<br />
+	<label for="imagen">Elige Una Imagen</label>
+	<input id="imagen" type="file" name="ima" accept="image/*" />
+	<br />
+	<br />
+	<label for="pass">Reescribe tu contraseña</label>
+	<input type="password" id="pass" name="pass" onChange="check2(this.value)" />
+	</fieldset>
+	<fieldset>
+		<label for="name">Nombre</label>
+		<input type="text" id="name" name="name" onClick="nick(this.value)" />
+		<br />
+		<br />
+		<label for="dir">Dirección</label>
+		<input type="text" id="dir" name="dir" />
+		<br />
+		<br />
+		<label for="phone">Ingrese tu Teléfono</label>
+		<input type="tel" id="phone" name="phone" onChange="tel(this.value)" />
+		<br />
+		<br />
+		<label for="bday">Fecha De Nacimiento</label> 
+		<input type="date" id="bday" name="bday" />
+		<br />
+		<br />
+		<input type="radio" name="sexo" value="F" /> Femenino<br />
+		<input type="radio" name="sexo" value="M" /> Masculino<br />
+	</fieldset>
+	<button type="submit" onClick="img(ima.value)" onMouseUp="todo()">Enviar</button>			
+	<button type="reset">Limpiar</button>
+	</form>
+
+    </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>Practica 5</title>
+		<meta name="author" content="" />
+		<meta charset="UTF-8" />
+    <script language="javascript">
+		function email(valor)
+		{
+			  	if (/^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,3})$/.test(valor))
+			   		alert("La dirección de email " + valor + " es correcta.");
+				else
+				{
+			   		alert("La dirección de email es incorrecta.");
+					document.reg.mail.value="";
+				}
+		}
+		
+		function check(valor)
+		{
+			if(valor!=document.reg.pass)
+			{
+				alert("EL Password es Diferentes...Escribelo de nuevo");
+				document.reg.pass2.value="";
+			}
+		}
+		
+		function check2(valor)
+		{
+			if(valor.length>=6)	
+				alert("El Password cumple con los requerimientos");
+				
+			else
+			{
+				alert("El Password debe contener de 6 a 16 caracteres");
+				document.reg.pass.value="";
+			}
+		}
+		
+		function nick(valor)
+		{
+			if(valor=="")
+				alert("Debes de Completar el campo de Nickname");
+		}
+
+	</script>
+	</head>
+    <body>
+    	<h1>REGISTRO</h1>
+        	<form method="post" action="register1.html" name="reg">
+		<fieldset>
+        	       		<label for="nombre">NICK</label>
+			<input type="text" id="nombre" name="nombre" onClick="nick(this.value);" />
+			<br />
+			<br />
+			<label for="mail">CORREO</label>
+			<input type="text" id="mail" name="mail" onChange="email(this.value);" />
+			<br />
+			<br />
+			<label for="pass">Ingresa tu contraseña</label>
+			<input type="password" id="pass" name="pass" onChange="check2(this.value)" />
+	 		<br />
+			<br />
+			<label for="pass2">Confirma tu contraseña</label>
+			<input type="password" id="pass2" name="pass2" onChange="check(this.value);" />
+			<br />
+		</fieldset>
+	<button type="submit">ENVIAR</button>
+	</form>
+    </body>
+</html>
