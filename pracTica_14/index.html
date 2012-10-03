@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>Practica 14</title>
+		<meta name="author" content="" />
+		<meta charset="UTF-8" />
+<style>
+div
+{
+	color:#FFF;
+	padding:5px;
+	text-align:center;
+	background:#930;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-ms-border-radius: 10px;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="css/default.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.7.2.custom.css" />
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
+ 	<script type="text/javascript">
+jQuery(function($){
+	$.datepicker.regional['es'] = {
+		closeText: 'Cerrar',
+		prevText: '&#x3c;Ant',
+		nextText: 'Sig&#x3e;',
+		currentText: 'Hoy',
+		monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
+		'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+		monthNamesShort: ['Ene','Feb','Mar','Abr','May','Jun',
+		'Jul','Ago','Sep','Oct','Nov','Dic'],
+		dayNames: ['Domingo','Lunes','Martes','Mi&eacute;rcoles','Jueves','Viernes','S&aacute;bado'],
+		dayNamesShort: ['Dom','Lun','Mar','Mi&eacute;','Juv','Vie','S&aacute;b'],
+		dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','S&aacute;'],
+		weekHeader: 'Sm',
+		dateFormat: 'dd/mm/yy',
+		firstDay: 1,
+		isRTL: false,
+		showMonthAfterYear: false,
+		yearSuffix: ''};
+	$.datepicker.setDefaults($.datepicker.regional['es']);
+});    
+
+        $(document).ready(function() {
+           $("#datepicker").datepicker();
+        });
+    </script>
+        <script language="javascript">
+		function img(valor)
+		{
+			if(valor=="")
+				document.getElementById('Dimg').style.display='';
+		}
+		
+		function img2(valor)
+		{
+			if(valor!="")
+				document.getElementById('Dimg').style.display='none';
+		}
+		
+		function tel(valor)
+		{
+			if(isNaN(valor))
+			{
+				document.getElementById('Dtel').style.display='';
+				document.reg.phone.value="";	
+			}
+			else
+				document.getElementById('Dtel').style.display='none';
+		}
+		
+		function check2(valor)
+		{
+			if(valor.length>=6)	
+				document.getElementById('Dpass').style.display='none';
+				
+			else
+			{
+				document.getElementById('Dpass').style.display='';
+				document.reg.pass.value="";
+			}
+		}
+		
+		function nick(valor)
+		{
+			if(valor=="")
+				document.getElementById('Dnick').style.display='';
+				
+			else
+				document.getElementById('Dnick').style.display='none';
+		}
+		
+		function todo()
+		{
+			if(document.reg.bday.value=="")
+				document.getElementById('Dtodo').style.display='';
+		}
+		
+		function todo2(valor)
+		{
+			if(valor!="")
+				document.getElementById('Dtodo').style.display='none';
+		}
+		
+		num=1;
+	function crear(obj) {
+	  num++;
+	  fi = document.getElementById('fiel');
+	  contenedor = document.createElement('div');
+	  contenedor.id = 'div'+num; 
+	  fi.appendChild(contenedor); 
+	
+	  ele = document.createElement('input');
+	  ele.type = 'tel'; 
+	  ele.name = 'tel'+num; 
+	  ele.onclick=function(){tel(this.value)};
+	  contenedor.appendChild(ele);
+	  
+	  ele = document.createElement('input');
+	  ele.type = 'button'; 
+	  ele.value = 'Borrar'; 
+	  ele.name = 'div'+num; 
+	  ele.onclick = function () {borrar(this.name)} 
+	  contenedor.appendChild(ele);
+	}
+	function borrar(obj) {
+	  fi = document.getElementById('fiel');
+	  fi.removeChild(document.getElementById(obj));
+	}
+
+	</script>
+	</head>
+    <body>
+    	<h1>REGISTRO</h1>
+        	<form method="post" action="" name="reg">
+	<fieldset>
+		<label for="nombre">NICK</label>
+		<input disabled type="text" id="nombre" name="nombre" />
+		<br />
+		<br />
+		<label for="email">CORREO</label>
+		<input disabled type="email" id="email" name="mail" />
+		<br />
+	</fieldset>
+	<fieldset>		
+	<select name="Question">
+   		<option selected value="0">Porque Te Registras Con Nosotros?</option>
+        <option value="0">Elige una Opci&oacute;n...</option>
+		<option value="1">Compartir Ideas</option> 
+		<option value="2">Descargar Musica</option> 
+		<option value="3">Vinculos Sociales</option> 
+		<option value="4">Mantener Contacto</option> 
+	</select>
+	<br />
+	<br />
+	<label for="imagen">Elige Una Imagen</label>
+	<input id="imagen" type="file" name="ima" accept="image/*" onClick="img(this.value)" onChange="img2(this.value)" />
+    <div id="Dimg" style="display:none; background:#930; width:170px;">
+    	<p>Selecciona una Imgen</p>
+    </div>
+	<br />
+	<br />
+	<label for="pass">Reescribe tu contrase&ntilde;a</label>
+	<input type="password" id="pass" name="pass" onChange="check2(this.value)" />
+	<div id="Dpass" style="display:none; background:#930; width:170px;">
+       <p>Contrase&ntilde;a invalida</p>
+   	</div>
+    </fieldset>
+	<fieldset>
+		<label for="name">Nombre</label>
+		<input type="text" id="name" name="name" onClick="nick(this.value)" />
+        <div id="Dnick" style="display:none; background:#930; width:170px;">
+        	<p>Campo Obligatorio</p>
+   		</div>
+		<br />
+		<br />
+		<label for="dir">Dirección</label>
+		<input type="text" id="dir" name="dir" />
+		<br />
+		<br />
+        <fieldset id="fiel">
+		<label for="phone">Ingrese tu Teléfono</label>
+		<input type="tel" id="phone" name="phone" onChange="tel(this.value)" /> <input type="button" value="Add Other Phone" onClick="crear(this)" />
+        <div id="Dtel" style="display:none; background:#930; width:170px;">
+        	<p>Telefono Incorrecto</p>
+   		</div>
+        </fieldset>
+		<br />
+		<br />
+		<label for="bday">Fecha De Nacimiento</label> 
+		<input type="text" name="datepicker" id="datepicker" readonly="readonly" size="12" />
+		<br />
+		<br />
+		<input type="radio" name="sexo" value="F" /> Femenino<br />
+		<input type="radio" name="sexo" value="M" /> Masculino<br />
+	</fieldset>
+	<button type="submit">Enviar</button>			
+	<button type="reset">Limpiar</button>
+	</form>
+
+    </body>
+</html>
