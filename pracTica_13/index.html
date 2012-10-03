@@ -1,0 +1,32 @@
+<html lang="es">
+<head>
+
+<meta charset="UTF-8" />
+<meta name="description" content="Practica 13 - Successful Page" />
+<meta name="keywords" content="success" />
+<meta name="author" content="Gerardo Grajales Zepeda" />
+<meta http-equiv="refresh" content="300" />
+</head>
+
+<body>
+<script type="text/javascript">
+	var titulo=document.createElement('h1');
+	var texto=document.createTextNode('Primer Titulo');
+	
+	titulo.appendChild(texto);
+	document.body.appendChild(titulo);
+	
+	var titulo2=document.createElement('h1');
+	var texto2=document.createTextNode('Otro Titulo');
+	
+	titulo2.appendChild(texto2);
+	
+	document.body.appendChild(titulo);
+	var titulos=document.getElementsByTagName('h1');
+	document.body.insertBefore(titulo2,titulos[0]);
+	
+
+</script>
+
+</body>
+</html>
